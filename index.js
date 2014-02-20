@@ -92,11 +92,12 @@ function put(request, response) {
 			console.log("Already logged in");
 			var newSessionId = login.refreshSession(sid);
 			response.setHeader('Set-Cookie', 'session_id=' + newSessionId);
-			response.end(login.hello(newSessionId));
+			// response.end(login.hello(newSessionId));
+			response.end("Re-freshed session id\n");
 		} else {
 			response.end("Invalid session_id!\n");
 		}
-	response.end("Re-freshed session id\n");
+	
 }
 else {
 		response.end("Please login via HTTP POST\n");
